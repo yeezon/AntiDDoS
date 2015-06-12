@@ -109,7 +109,7 @@ TMP_BANNED_IP_LIST=`mktemp /tmp/ban.XXXXXXXX`
 echo "Banned the following ip addresses on `date`" > $BANNED_IP_MAIL
 echo >> $BANNED_IP_MAIL
 BAD_IP_LIST=`$TMP_FILE`
-#ss -ntu | grep -E "$STATE" | awk 'NR!=1{print $6}' | cut -d: -f1 | sort | uniq -c | sort -nr > $BAD_IP_LIST
+
 WITH_FILTER=""
 MULTI_FILTER=0
 
@@ -128,11 +128,8 @@ do
     fi
 done
 echo $WITH_FILTER
-if [ $MULTI_FILTER -eq 0 ]; then
-  ss -ntu $WITH_FILTER | awk 'NR!=1{print $6}' | cut -d: -f1 | sort | uniq -c | sort -nr > $BAD_IP_LIST
-else
-  ss -ntu $WITH_FILTER | awk 'NR!=1{print $5}' | cut -d: -f1 | sort | uniq -c | sort -nr > $BAD_IP_LIST
-fi
+
+ss -ntu $WITH_FILTER | awk 'NR!=1{print $6}' | cut -d: -f1 | sort | uniq -c | sort -nr > $BAD_IP_LIST
 
 cat $BAD_IP_LIST
 IP_BAN_NOW=0
