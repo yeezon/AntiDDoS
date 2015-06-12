@@ -128,7 +128,7 @@ do
     fi
 done
 echo $WITH_FILTER
-if [ $MULTI_FILTER -eq 1 ]; then
+if [ $MULTI_FILTER -eq 0 ]; then
   ss -ntu $WITH_FILTER | awk 'NR!=1{print $6}' | cut -d: -f1 | sort | uniq -c | sort -nr > $BAD_IP_LIST
 else
   ss -ntu $WITH_FILTER | awk 'NR!=1{print $5}' | cut -d: -f1 | sort | uniq -c | sort -nr > $BAD_IP_LIST
