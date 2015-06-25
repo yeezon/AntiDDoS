@@ -17,8 +17,10 @@ Please view `ddos.conf`.
 
 You could set `EMAIL_TO` with your email address.
 And when there is ip banned, you would recieve an email.
-To enable email sending, you should config smtp in your server:
+To enable email sending, you should config smtp in your server.
+
 Open config file:
+
 `vi /etc/mail.rc`
 
 Add the following content:
@@ -30,4 +32,6 @@ set smtp-auth-user=[user name]
 set smtp-auth-password=[password]
 set smtp-auth=login
 ```
-Save and quit with:`:wq`
+Save and quit with:
+
+`:wq`
