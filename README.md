@@ -24,6 +24,7 @@ Open config file:
 `vi /etc/mail.rc`
 
 Add the following content:
+
 *The `[]` means parameter, you should drop in your config.*
 ```
 set from=[name-to-show@yourserver.com]
