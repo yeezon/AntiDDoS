@@ -1,5 +1,5 @@
 # AntiDDoS
-Automaticly scan tcp/udp connections, find bad IPs and ban them with iptables.
+Automatically scan tcp/udp connections, find bad IPs and ban them with iptables.
 
 # How to use
 ```
@@ -13,13 +13,21 @@ chmod +x ddos.sh
 ```
 
 # Config
-Open `ddos.conf`, edit EMAIL_TO config
+Please view `ddos.conf`.
 
-Ensure your iptables is running:
-service iptables status
+You could set `EMAIL_TO` with your email address.
+And when there is ip banned, you would recieve an email.
+To enable email sending, you should config smtp in your server:
+Open config file:
+`vi /etc/mail.rc`
 
-Config mail
-vi /etc/mail.rc
-
-
-
+Add the following content:
+*The `[]` means parameter, you should drop in your config.*
+```
+set from=[name-to-show@yourserver.com]
+set smtp=[smtp.server.net]
+set smtp-auth-user=[user name]
+set smtp-auth-password=[password]
+set smtp-auth=login
+```
+Save and quit with:`:wq`
