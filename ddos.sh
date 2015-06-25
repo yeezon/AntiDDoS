@@ -127,7 +127,6 @@ do
       WITH_FILTER="$WITH_FILTER state ${ALL_STATE[index]}"
     fi
 done
-echo $WITH_FILTER
 if [ $MULTI_FILTER -eq 1 ]; then
   ss -ntu $WITH_FILTER | awk 'NR!=1{print $6}' | cut -d: -f1 | sort | uniq -c | sort -nr > $BAD_IP_LIST
 else
