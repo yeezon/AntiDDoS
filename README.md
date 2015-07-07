@@ -15,17 +15,23 @@ chmod +x ddos.sh
 # Config
 Please view `ddos.conf`.
 
-You could set `EMAIL_TO` with your email address.
+# Notify
+In `ddos.conf`, fill `EMAIL_TO` with your email address.
 And when there is ip banned, you would recieve an email.
-To enable email sending, you should config smtp in your server.
+
+To enable email sending, firstly, you should config `mailx` in your server.
+
+Install mailx:
+
+`yum install -y mailx`
 
 Open config file:
 
 `vi /etc/mail.rc`
 
-Add the following content:
+Add the following content in the end:
 
-*The `[]` means parameter, you should drop in your config.*
+*The `[]` means parameter*
 ```
 set from=[name-to-show@yourserver.com]
 set smtp=[smtp.server.net]
