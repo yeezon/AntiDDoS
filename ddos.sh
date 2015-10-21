@@ -175,6 +175,9 @@ if [ $IP_BAN_NOW -eq 1 ]; then
     cat $BANNED_IP_MAIL | mail -s "IP addresses banned on $dt" $EMAIL_TO
   fi
   unbanip
+else
+  # remove empty temp ban ip file
+  rm $TMP_BANNED_IP_LIST
 fi
 
 rm -f $TMP_PREFIX.*
