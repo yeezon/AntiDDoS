@@ -36,7 +36,6 @@ unbanip()
 {
   UNBAN_SCRIPT=`mktemp /tmp/unban.XXXXXXXX`
   TMP_FILE=`mktemp /tmp/unban.XXXXXXXX`
-  UNBAN_IP_LIST=`mktemp /tmp/unban.XXXXXXXX`
   echo '#!/bin/sh' > $UNBAN_SCRIPT
   echo "sleep $BAN_PERIOD" >> $UNBAN_SCRIPT
   while read line; do
